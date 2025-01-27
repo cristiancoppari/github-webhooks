@@ -12,7 +12,23 @@ export class GitHubService {
   }
 
   onIssue(payload: GitHubIssue): string {
-    console.log(payload);
-    return "";
+    const { action, sender, repository, issue } = payload;
+
+    if (action === "opened") {
+      const message = `User ${sender.login} opened an issue on ${repository.full_name} with this title ${issue.title}.`;
+      return message;
+    }
+
+    if (action === "closed") {
+      const message = `User ${sender.login} closed an issue on ${repository.full_name} with this title ${issue.title}.`;
+      return message;
+    }
+
+    if (action === "reopened") {
+      const message = `User ${sender.login} reopened an issue on ${repository.full_name} with this title ${issue.title}.`;
+      return message;
+    }
+
+    return `Unknown action: ${action}`;
   }
 }
