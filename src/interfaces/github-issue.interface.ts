@@ -1,4 +1,4 @@
-export interface GithubIssue {
+export interface GitHubIssue {
   action: string;
   issue: IssueClass;
   repository: Repository;

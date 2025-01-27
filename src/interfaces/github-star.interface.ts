@@ -1,4 +1,4 @@
-export interface GithubStar {
+export interface GitHubStar {
   action: string;
   starred_at: Date;
   repository: Repository;
